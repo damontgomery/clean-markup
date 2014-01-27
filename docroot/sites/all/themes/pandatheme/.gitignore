@@ -1,0 +1,9 @@
+.DS_Store
+/.sass-cache/
+/css/
+/scss/site*
+/scss/_site.*
+/scss/sections/
+/images/
+/js/site.js
+/template_extensions.php

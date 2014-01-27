@@ -1,0 +1,97 @@
+@import "base";
+
+/*RESPONSIVE*/
+//add more specificity to override
+html {
+
+  #admin-menu {
+    // Reset, not sure why this is absolute.
+    position: fixed;
+  }
+  
+  @media #{$mq-phone} {
+    
+    body {
+      //fix iPhone resizing text in weird ways.
+      -webkit-text-size-adjust: none;
+    }
+    
+    .responsive-full {
+      display: none;
+    }
+
+    .responsive-mobile {
+      display: block;
+    }
+
+    .region-sidebar-first {
+      width: 100%;
+    }
+
+    .region-content {
+      width: 100%;
+    }
+
+    .front #page-wrapper .region-main {
+      .block {
+        width: 100%;
+      }
+    }
+
+    .region-navigation {
+      clear: left;
+    }
+    
+    /*Disable Flash*/
+    object[type="application/x-shockwave-flash"] {
+      display: none;
+    }
+  }
+
+  @media #{$mq-iphone5-h} {
+    body {
+      -webkit-text-size-adjust: none;
+    } 
+  }
+  
+  /*Grid Blocks*/
+  /*Normal start at 3 columns, wide start at 2*/
+  .grid-block{
+    @media only screen and (min-width: ($break-phone-v + 1)) and (max-width: 800px) {
+      width: 50%;
+    }
+
+    @media only screen and (max-width: $break-phone-v) {
+      width: 100%;
+    }
+  }
+
+  .grid-block-wide{
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+  
+  /*Basic Column Formatting*/
+
+  @media only screen and (min-width: 700px) {
+    .col-2 {
+      width: 50%;
+      float: left;
+
+      & > .content {
+        padding: 0 1em;
+      }
+    }
+
+    .col-3 {
+      width: 33%;
+      float: left;
+
+      & > .content {
+        padding: 0 1em;
+      }
+    }  
+  }
+
+} /*end of HTML wrapper*/

@@ -1,0 +1,93 @@
+
+//Simple Linear Gradient Background
+@mixin panda-linear-gradient($start-color, $end-color){
+  background: mix($start-color, $end-color);
+  background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $start-color), color-stop(100%,$end-color));
+  background: -webkit-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: -o-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: -ms-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: linear-gradient(top,  $start-color 0%, $end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start-color}', endColorstr='#{$end-color}',GradientType=0 );
+}
+
+//Prefix hell for transitions
+@mixin panda-transition($options){
+  transition: $options;
+  -webkit-transition: $options;
+  -moz-transition: $options;
+  -o-transition: $options;
+}
+
+@function panda-base10-to-hex($d){
+  @if ($d == 10) {$d : 'A';}
+  @if ($d == 11) {$d : 'B';}
+  @if ($d == 12) {$d : 'C';}
+  @if ($d == 13) {$d : 'D';}
+  @if ($d == 14) {$d : 'E';}
+  @if ($d == 15) {$d : 'F';}
+  
+  @return $d;
+}
+
+@function panda-percent-to-hex($percent){
+  $opacity : round($percent * 255);
+  $d1 : floor($opacity / 16);
+  $d2 : $opacity - ($d1 * 16);
+  
+  $d1 : panda-base10-to-hex($d1);
+  $d2 : panda-base10-to-hex($d2);
+  
+  @return "#{$d1}#{$d2}";
+}
+
+@mixin panda-background-color-opacity($color){
+  background-color: $color;
+  /* For IE 5.5 - 7*/
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str($color)}, endColorstr=#{ie-hex-str($color)});
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{ie-hex-str($color)}, endColorstr=#{ie-hex-str($color)})";
+}
+
+// Using the golden number of 1.618 to produce nice looking ratios!
+@function panda-gn($n) {
+  @return pow(1.618 , $n);
+}
+
+// Using the golden number of 1.618 to produce nice looking ratios, starting with the half stop lower of 0.854 (1 - (1 - 0.618) ^ 2)!
+@function panda-gn-med($n) {
+  @return 0.854 * pow(1.618 , $n);
+}
+  
+// HSV (Photoshop type) color function
+// input format is [0-360]deg, [0-100]%, [0-100]%
+// example hsv(100deg, 50%, 75%)
+
+@function hsv($h,$s,$v) {
+  // h stays the same
+  $oh : $h;
+
+  //remove units if present
+  @if (unitless($s) == false) {$s : $s / 1%;}
+  @if (unitless($v) == false) {$v : $v / 1%;}
+
+  //convert from 0-100 to 0-1
+  $s : $s / 100;
+  $v : $v / 100;
+
+  $ol : ((2 - $s) * $v) / 2;
+
+  $os : $s * $v;
+  @if ($ol == 0) {$os : 0;} // prevent divide by 0
+  @else if ($ol <= 0.5) {$os : $os / ($ol * 2);}
+  @else {$os : $os / (2 - ($ol * 2));}
+
+  @return hsl($oh, percentage($os), percentage($ol));
+}
+
+// HSB (Photoshop name for HSV) alias for hsv function
+
+@function hsb($h, $s, $v) {
+  @return hsv($h, $s, $v);
+}
+

@@ -1,0 +1,30 @@
+name        = Panda Theme
+description = A base theme by Daniel Montgomery
+core        = 7.x
+
+stylesheets[all][]        = css/base.style.css
+stylesheets[all][]        = css/base.responsive.css
+
+stylesheets[all][]        = css/site.structure.css
+stylesheets[all][]        = css/site.region.css
+stylesheets[all][]        = css/site.content.css
+
+scripts[]        = js/base.js
+scripts[]        = js/base.responsive.js
+scripts[]        = js/site.js
+scripts[]        = js/pandaMark.js
+
+scripts[]        = js/css3-mediaqueries.js
+
+regions[page_top]           = Page Top
+regions[help]               = Help
+regions[header]             = Header
+regions[navigation]         = Navigation bar
+regions[navigation_pane]    = Navigation Pane
+regions[content_over]       = Content (Over)
+regions[content]            = Content (Main)
+regions[content_under]      = Content (Under)
+regions[sidebar_first]      = First Sidebar
+regions[sidebar_second]     = Second Sidebar
+regions[footer]             = Footer
+regions[page_bottom]        = Page Bottom

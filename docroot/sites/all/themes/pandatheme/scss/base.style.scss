@@ -1,0 +1,665 @@
+@import "base";
+
+/*STYLE.BASE.CSS*/
+
+body {
+  font-family: $body_font;
+  font-size: 100%; /*Set base font size.  Use em units after this.*/
+  //line-height: 1 * panda-gn(1); /*using ratios means they are relative to each element, not to the parent value*/
+  line-height: 1.8;
+  margin: 0;
+  color: #505050;
+}
+
+p {
+  margin: 1em 0em;
+}
+
+.pull-quote {
+  float: left;
+  display: block;
+  border-top: 1px solid $color_light_gray;
+  border-bottom: 1px solid $color_light_gray;
+  padding: 1em;
+  padding: 1rem;
+  margin: 1em 1.5em 1em 0;
+  margin: 1rem 1.5rem 1rem 0;
+  width: 33%;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  font-size: 1.2rem;
+  font-family: $header_font;
+  font-style: italic;
+}
+
+blockquote {
+  margin: 0.5em;
+  margin: 0.5rem;
+  padding: 1em;
+  padding: 1rem;
+
+  border: 1px solid #DEDEDE;
+  
+  p {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  span.author {
+    color : $color_pri;
+  }
+}
+
+.legal {
+  color: #A3A3A3;
+  font-size:  1em * panda-gn(-1); /* 10px */
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+  display: block;
+}
+
+iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+object {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+// disable margin on block titles by default
+div.block-title > h3 {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, pre, ul, ol, dl, hr, table, fieldset {
+  margin: 1em 0;
+}
+
+/*HEADERS*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: (1em * panda-gn(-1)) 0;
+  font-weight: normal;
+  font-family: $header_font;
+  line-height: panda-gn-med(1);
+  clear: left;
+  letter-spacing: 1px;
+}
+
+
+h1 {
+  //margin-top: 0;
+  font-size: 2em;
+  color: $color_pri;
+  text-transform: capitalize;
+  margin: 0 0 0.4em 0;
+}
+
+h2 {
+  font-size: 1em * panda-gn(1);
+  color: $color_sec;
+}
+
+h3, h4, h5 {
+  font-size: 1.25em;
+  color: $color_sec
+}
+
+h3 {
+  //color: $color_sec;
+}
+
+h4 {
+  //color: $color_sec;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: inherit;
+}
+
+// This style is used for the parts of content that label the item
+// example: by {person} or comments {#};
+.meta-label {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-size: 0.7rem;
+  color: #909090;
+}
+
+/*LINKS*/
+a {
+  color: $color_pri;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $color_pri;
+}
+
+/*Drupal Links*/
+
+// drupal override
+ul.inline li {
+  padding: 0;
+}
+
+li a.active {
+  color: $color_pri;
+}
+
+.more-link {
+  display: none;
+}
+
+.form-actions input,
+.more-link a,
+.region-content input[type=submit] {
+  color: white;
+  background: $color_pri;
+  
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0.5em 0.5em 0 0;
+  margin: 0.5rem 0.5rem 0 0;
+
+  font-family: $header_font;
+  font-size: 0.8em;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  font-weight: normal;
+
+  border: none;
+  border-radius: 2px;
+}
+
+/*LIST ITEMS*/
+ul, ol, li {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none; 
+}
+
+li {
+  //list-style-type: none;
+}
+
+.region-content-content, .fancybox-overlay {
+  
+  li {
+    list-style-type: disc;
+  }
+
+  ul,
+  ol {
+    padding-left: 2em; /* LTR */
+    margin-bottom: 1em;
+  }
+  
+  li > ul,
+  li > ol {
+    margin: 0;  
+  }
+  
+  ul {
+  }
+  
+  ol {
+    list-style-type: decimal;
+    
+    ol {
+      list-style-type: lower-alpha;
+      
+      ol {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+}
+
+/*LI OVERRIDES*/
+
+.item-list ul /* Drupal overrides */ {
+  margin: 1em 0;
+  margin: 1rem 0;
+  //padding: 0 0 0 2em; /* LTR */
+}
+
+.item-list ul ul, .item-list ul ol,
+.item-list ol ol, .item-list ol ul {
+  margin: 0;
+}
+
+.item-list ul li,
+ul.menu li,
+li.expanded,
+li.collapsed,
+li.leaf /* Drupal override */ {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+//webkit and other normalize
+
+dd {
+  margin: 0;
+}
+
+/*Selections*/
+
+::selection {
+  background-color: $color_pri_light;
+  color: white;
+}
+
+/*fancybox overrides*/
+.fancybox-overlay ul li {
+  list-style-image: inherit; 
+}
+
+/*TABLES*/
+
+table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+
+table .active { /* system theme override */
+  background: none
+}
+
+thead {
+  
+  tr {
+    background: $color_sec;
+    color: #FFFFFF;
+
+    th {
+      padding: 1em * panda-gn(-2) 0.8em;
+      font-weight: normal;  
+      text-decoration: none;
+      color: #FFFFFF;
+      text-align: left;
+      
+      &:first-child {
+        //border-left: none;
+      }
+      
+      &:last-child {
+        //border-right: none;
+      }
+    }
+    
+    th.active a,
+    th a,
+    th a:hover,
+    th a:visited {
+      text-decoration: none;
+      color: #FFFFFF;
+      font-weight: normal;
+    }
+
+    // sort order styling from system.theme.css
+    th.active img {
+      display: inline;
+      margin-left: 0.5em;
+    }
+  }
+}
+
+tbody {
+}
+
+tr,
+tr.even,
+tr.odd {
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid $color_light_gray;
+}
+
+tbody tr:last-child {
+  background: none;
+}
+
+td {
+  padding: 1em * panda-gn(-1) 1em;
+  border: none;
+}
+
+/*FORMS*/
+
+.element-invisible {
+  padding: 0px;
+  margin: 0px;
+}
+
+form {
+  margin: 1em 0;
+  padding: 0;
+}
+
+fieldset {
+  padding: 1em;
+  border: 1px solid #A0A0A0;
+  border-radius: 2px;
+  margin: 1em 0;
+  
+  &.collapsed {
+    border: none;
+  }
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers.
+ * 2. Addresses margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improves appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+// remove grippie from being shown (drupal UI)
+.resizable-textarea .grippie {
+  display: none;
+}
+
+div.text-wrap {
+  background: #FFFFFF;
+  border: 1px solid #D0D0D0;
+  //box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2) inset;
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem 0 0.5rem;
+  width: auto;
+  //max-width: 400px;
+
+  -webkit-transition: border linear 0.3s, box-shadow linear 0.3s;
+     -moz-transition: border linear 0.3s, box-shadow linear 0.3s;
+      -ms-transition: border linear 0.3s, box-shadow linear 0.3s;
+       -o-transition: border linear 0.3s, box-shadow linear 0.3s;
+          transition: border linear 0.3s, box-shadow linear 0.3s;
+  
+  &.focused {
+    box-shadow: 0 0 2px 1px $color_pri;
+  }
+}
+
+//form errors
+.form-item input.error, .form-item textarea.error, .form-item select.error {
+  border: none;
+  color: $color_pri;
+}
+
+input[type=text],
+input[type=search],
+textarea, 
+input[type=password],
+input[type=email] {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  outline: none;
+  border: none;
+  
+  font-size: 100%;
+  line-height: 1.618em;
+}
+
+//override iPhone overrides!
+input[type=submit] {
+  -webkit-appearance: none;
+  border-radius: none;
+}
+
+input[type=submit] {
+  cursor: pointer;
+}
+
+input::-webkit-input-placeholder,
+input:-moz-placeholder,
+input::-moz-placeholder,
+input:-ms-input-placeholder {  
+  color: $color_sec;
+  font-size: 0.7em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+div.form-item {
+  position: relative;
+}
+
+div.form-item label /* The label for a form element */ {
+  display: inline;
+  //display: none; //using placeholder instead need to add modernizr check for this
+  font-weight: normal;
+  margin: 1em 0;
+  text-transform: capitalize;
+  color: $color_sec;
+
+  &.hide {
+    display: none;
+  }
+
+  &.active {
+    display: block;
+    font-size: 0.8em;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -2rem;
+    left: 0px;
+    padding: 0.1em 1em;
+    padding: 0.1rem 1rem;
+    margin: 0;
+    border-radius: 2px;
+
+    background: $color_sec;
+    color: white;
+  }
+}
+
+.form-item label.option /* The label for a radio button or checkbox */ {
+  display: inline;
+  font-weight: normal;
+  color: #525252;
+}
+
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 2.7em;
+}
+
+div.form-item input.form-radio {
+  vertical-align: top;
+}
+
+.form-required /* The part of the label that indicates a required field */ {
+  color: $color_hl1;
+}
+
+.form-item .description /* The descriptive help text (separate from the label) */ {
+  font-size: 0.85em;
+  color:#999;
+}
+
+.form-checkboxes .form-item,
+.form-radios .form-item /* Pack groups of checkboxes and radio buttons closer together */ {
+  margin: 0; /* Drupal core uses "0.4em 0" */
+}
+
+form.webform-client-form input#edit-submit.form-submit /* The submit button */ {
+  border-radius: 4px;
+}
+
+.container-inline div,
+.container-inline label /* Inline labels and form divs */ {
+  display: inline;
+}
+
+.label-inline {
+  font-weight: bold;
+  display: inline;
+}
+
+/**
+ * pandaMark jQuery Plugin
+ **/
+
+.panda-mark-hide {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  pointer-events: none; // this prevents the checkbox / radio from being clicked on
+}
+
+.panda-mark-checkbox,
+.panda-mark-radio {
+	display: inline-block;
+  margin-bottom: 0px; /*for win*/
+  vertical-align: baseline; /*for osx*/
+  height: 0.8em;
+  width: 0.8em;
+  
+  border: 1px solid #D0D0D0;
+}
+
+.panda-mark-checkbox {
+}
+
+.panda-mark-radio {
+  border-radius: 15px;
+}
+
+.panda-mark-active {
+  border: 1px solid $color_pri;
+  background: $color_pri;
+}
+
+/*View Grids*/
+
+.grid-block{
+  width: 33%;
+  float: left;
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+  }
+  
+  & > .content {
+    padding: 1em * panda-gn(1);
+    
+    img {
+      border-radius: 2px;
+      //box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.grid-block-wide{
+  width: 50%;
+  float: left;
+  
+  & > .content {
+    padding: 1em * panda-gn(1);
+  }
+}
+
+//views
+
+.views-row {
+  margin: 1em 0;
+  margin: 1rem 0;
+
+  background-repeat: repeat-x;
+  background-position: bottom;
+    
+  &.views-row-odd {
+    //background-color: #F9F9F9;
+  }
+  
+  &.views-row-even {
+    //background-color: #FFFCF1;
+  }
+  
+  &.views-row-first {
+    
+  }
+  
+  &.views-row-last {
+    background-image: none;
+  }
+}
+
+.view-header, .view-footer {
+  .views-row {
+    padding: 0;
+
+    background: none;
+
+    &.views-row-odd {
+      background: none;
+    }
+
+    &.views-row-even {
+      background: none;
+    }
+  }
+}
+
+.filter-wrapper {
+  display: none;
+}
+  
