@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Clean Markup in Drupal 7 Using DS, Semantic Views, Media, and Custom Themes</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Clean Markup in Drupal 7</h1>
+					<h3>DS, Semantic Views, Media, and Custom Themes</h3>
+					<p>
+						<small>Created by Dan Montgomery (PandaEskimo)</small>
+            <br>
+            <small>Inspired in part by <a href="http://www.codeenigma.com/en/blog/drupal-theming-death-of-a-themer">Death of a Themer by James Panton</a></small>
+            <br><small>(http://www.codeenigma.com/en/blog/drupal-theming-death-of-a-themer)</small>
+					</p>
+				</section>
+        <section>
+          <h2>The Drupal Team</h2>
+          <img src="images/dev-themer-frontend.jpg" alt="">
+        </section>
+				<section>
+					<h2>The Problem</h2>
+					<ul>
+						<li>Developing front end for Drupal 7 is no fun.</li>
+						<li>You have to do it the "Drupal way".</li>
+						<li>Responsive designs don't work well.</li>
+						<li>Overrides and conflicts with old JS libraries.</li>
+						<li>For larger teams, flexibility leads to a mess.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>The Solution</h2>
+					<ul>
+						<li>Gut Drupal's front end to its core.</li>
+						<li>Add back in what you want.</li>
+						<li>Stop hearing, "Drupal sucks"?</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Sample Content</h2>
+					<img src="images/sample-content.png" alt="">
+				</section>
+				<section>
+					<h2>DIVS DIVS DIVS</h2>
+					<img src="images/divs-divs-divs.png" alt="">					
+				</section>
+        <section>
+          <h2>What a frontend dev sees</h2>
+          <img src="images/no-hats.jpg" alt="">
+        </section>
+        <section>
+          <h2>What frontend devs do</h2>
+          <img src="images/many-hats" alt="">
+        </section>
+        <section>
+          <h2>:(</h2>
+          <img src="images/have-a-cry-drupo-nt.png" alt="">
+        </section>
+				<section>
+					<h2>Nice and Clean!</h2>
+					<img src="images/clean.png" alt="">
+				</section>
+        <section>
+          <h2>Remember this?</h2>
+          <img src="images/divs-divs-divs.png" alt="">          
+        </section>
+        <section>
+          <h2>Let's go back to the hats</h2>
+          <img src="images/one-hat" alt="">
+        </section>
+				<section>
+					<h2>Too Little?</h2>
+					<img src="images/too-little.png" alt="">
+				</section>
+				<section>
+					<h2>Key Modules</h2>
+					<ul>
+						<li>Display Suite (DS)</li>
+						<li>Display Suite Extras</li>
+						<li>Semantic Views</li>
+						<li>jQuery Update</li>
+						<li>Your own theme!</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Your own theme?</h2>
+					<p>Don't worry! Theming doesn't have to be a pain.</p>
+				</section>
+        <section>
+          <h2>The theme will focus on wrangling Drupal's containers</h2>
+        </section>
+        <section>
+          <h2>Let's start with the fields inside those containers</h2>
+        </section>
+				<section>
+					<h2>Enable DS Extras Field Templates</h2>
+					<img src="images/DS-Settings.png" alt="">
+				</section>
+				<section>
+					<h2>Manage Display</h2>
+					<img src="images/DS-CT-Manage-Display.png" alt="">
+				</section>
+				<section>
+					<h2>Manage Media Display</h2>
+					<img src="images/Media-Manage-Display.png" alt="">
+				</section>
+				<section>
+					<h2>Manage Media File Display</h2>
+					<img src="images/Media-Manage-File-Display.png" alt="">
+				</section>
+        <section>
+          <h2>Back to the containers (theme)</h2>
+        </section>
+        <section>
+          <h2>Drupal Markup Structure</h2>
+          <img src="images/drupal-page.png" alt="">
+        </section>
+        <section>
+          <h2>Key Theme Components</h2>
+          <ul>
+            <li>mytheme.info</li>
+            <li>template.php</li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li>templates</li>
+            <ul>
+              <li>html.tpl.php</li>
+              <li>page.tpl.php</li>
+              <li>region.tpl.php</li>
+              <li>block.tpl.php</li>
+              <li>node.tpl.php</li>
+              <li>semanticviews-view-fields.tpl.php</li>
+              <li>views-view-tpl.php</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2>Example: Block.tpl.php</h2>
+          <h3>Default</h3>
+          <pre><code>&lt;div id="&lt;?php print $block_html_id; ?&gt;" class="&lt;?php print $classes; ?&gt;"
+&lt;?php print $attributes; ?&gt;&gt;
+  &lt;?php print render($title_prefix); ?&gt;
+&lt;?php if ($block-&gt;subject): ?&gt;
+  &lt;h2&lt;?php print $title_attributes; ?&gt;&gt;&lt;?php print $block-&gt;subject ?&gt;&lt;/h2&gt;
+&lt;?php endif;?&gt;
+  &lt;?php print render($title_suffix); ?&gt;
+  &lt;div class="content"&lt;?php print $content_attributes; ?&gt;&gt;
+    &lt;?php print $content ?&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h2>Example: New Block.tpl.php</h2>
+          <pre><code>&lt;div id="&lt;?php print $block_html_id; ?&gt;"class="clearfix &lt;?php print $classes; ?&gt;"&lt;?php print $attributes; ?&gt;&gt;
+  &lt;div class="content"&lt;?php print $content_attributes; ?&gt;&gt;
+    &lt;?php print render($title_prefix); ?&gt;
+    &lt;?php if (isset($block-&gt;subject) and ($block-&gt;subject !== '')): ?&gt;
+      &lt;div class="block-title"&gt;
+        &lt;h3&lt;?php print $title_attributes; ?&gt;&gt;&lt;?php print $block-&gt;subject; ?&gt;&lt;/h3&gt;
+      &lt;/div&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php print render($title_suffix); ?&gt;
+    &lt;?php print $content; ?&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </section>
+        <section>
+          <h2>Example default HTML.tpl.php</h2>
+          <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="&lt;?php print $language-&gt;language; ?&gt;" version="XHTML+RDFa 1.0" dir="&lt;?php print $language-&gt;dir; ?&gt;"&lt;?php print $rdf_namespaces; ?&gt;&gt;
+&lt;head profile="&lt;?php print $grddl_profile; ?&gt;"&gt;
+  &lt;?php print $head; ?&gt;
+  &lt;title&gt;&lt;?php print $head_title; ?&gt;&lt;/title&gt;
+  &lt;?php print $styles; ?&gt;
+  &lt;?php print $scripts; ?&gt;
+&lt;/head&gt;
+&lt;body class="&lt;?php print $classes; ?&gt;" &lt;?php print $attributes;?&gt;&gt;
+  &lt;div id="skip-link"&gt;
+    &lt;a href="#main-content" class="element-invisible element-focusable"&gt;&lt;?php print t('Skip to main content'); ?&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;?php print $page_top; ?&gt;
+  &lt;?php print $page; ?&gt;
+  &lt;?php print $page_bottom; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </section>
+        <section>
+          <h2>Example custom HTML.tpl.php</h2>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="&lt;?php print $language-&gt;language; ?&gt;" dir="&lt;?php print $language-&gt;dir; ?&gt;"&lt;?php print $rdf_namespaces; ?&gt;&gt;
+&lt;head&gt;
+  &lt;?php print $head; ?&gt;
+  &lt;title&gt;&lt;?php print $head_title; ?&gt;&lt;/title&gt;
+  &lt;?php print $styles; ?&gt;
+  &lt;?php print $scripts; ?&gt;
+&lt;/head&gt;
+&lt;body class="&lt;?php print $classes; ?&gt;" &lt;?php print $attributes;?&gt;&gt;&lt;/div&gt;
+  &lt;?php print $page_top; ?&gt;
+  &lt;?php print $page; ?&gt;
+  &lt;?php print $page_bottom; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </section>
+        <section>
+          <h2>Example default PAGE.tpl.php</h2>
+          <pre><code>&lt;div id="page-wrapper"&gt;&lt;div id="page"&gt;
+  &lt;div id="header"&gt;&lt;div class="section clearfix"&gt;
+    &lt;?php if ($logo): ?&gt;
+      &lt;a href="&lt;?php print $front_page; ?&gt;" title="&lt;?php print t('Home'); ?&gt;" rel="home" id="logo"&gt;
+        &lt;img src="&lt;?php print $logo; ?&gt;" alt="&lt;?php print t('Home'); ?&gt;" /&gt;
+      &lt;/a&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php if ($site_name || $site_slogan): ?&gt;
+      &lt;div id="name-and-slogan"&gt;
+        &lt;?php if ($site_name): ?&gt;
+          &lt;?php if ($title): ?&gt;
+            &lt;div id="site-name"&gt;&lt;strong&gt;
+              &lt;a href="&lt;?php print $front_page; ?&gt;" title="&lt;?php print t('Home'); ?&gt;" rel="home"&gt;&lt;span&gt;&lt;?php print $site_name; ?&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/strong&gt;&lt;/div&gt;
+          &lt;?php else: /* Use h1 when the content title is empty */ ?&gt;
+            &lt;h1 id="site-name"&gt;
+              &lt;a href="&lt;?php print $front_page; ?&gt;" title="&lt;?php print t('Home'); ?&gt;" rel="home"&gt;&lt;span&gt;&lt;?php print $site_name; ?&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/h1&gt;
+          &lt;?php endif; ?&gt;
+        &lt;?php endif; ?&gt;
+        &lt;?php if ($site_slogan): ?&gt;
+          &lt;div id="site-slogan"&gt;&lt;?php print $site_slogan; ?&gt;&lt;/div&gt;
+        &lt;?php endif; ?&gt;
+      &lt;/div&gt; &lt;!-- /#name-and-slogan --&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php print render($page['header']); ?&gt;
+  &lt;/div&gt;&lt;/div&gt; &lt;!-- /.section, /#header --&gt;
+  &lt;?php if ($main_menu || $secondary_menu): ?&gt;
+    &lt;div id="navigation"&gt;&lt;div class="section"&gt;
+      &lt;?php print theme('links__system_main_menu', array('links' =&gt; $main_menu, 'attributes' =&gt; array('id' =&gt; 'main-menu', 'class' =&gt; array('links', 'inline', 'clearfix')), 'heading' =&gt; t('Main menu'))); ?&gt;
+      &lt;?php print theme('links__system_secondary_menu', array('links' =&gt; $secondary_menu, 'attributes' =&gt; array('id' =&gt; 'secondary-menu', 'class' =&gt; array('links', 'inline', 'clearfix')), 'heading' =&gt; t('Secondary menu'))); ?&gt;
+    &lt;/div&gt;&lt;/div&gt; &lt;!-- /.section, /#navigation --&gt;
+  &lt;?php endif; ?&gt;
+  &lt;?php if ($breadcrumb): ?&gt;
+    &lt;div id="breadcrumb"&gt;&lt;?php print $breadcrumb; ?&gt;&lt;/div&gt;
+  &lt;?php endif; ?&gt;
+  &lt;?php print $messages; ?&gt;
+  &lt;div id="main-wrapper"&gt;&lt;div id="main" class="clearfix"&gt;
+    &lt;div id="content" class="column"&gt;&lt;div class="section"&gt;
+      &lt;?php if ($page['highlighted']): ?&gt;&lt;div id="highlighted"&gt;&lt;?php print render($page['highlighted']); ?&gt;&lt;/div&gt;&lt;?php endif; ?&gt;
+      &lt;a id="main-content"&gt;&lt;/a&gt;
+      &lt;?php print render($title_prefix); ?&gt;
+      &lt;?php if ($title): ?&gt;&lt;h1 class="title" id="page-title"&gt;&lt;?php print $title; ?&gt;&lt;/h1&gt;&lt;?php endif; ?&gt;
+      &lt;?php print render($title_suffix); ?&gt;
+      &lt;?php if ($tabs): ?&gt;&lt;div class="tabs"&gt;&lt;?php print render($tabs); ?&gt;&lt;/div&gt;&lt;?php endif; ?&gt;
+      &lt;?php print render($page['help']); ?&gt;
+      &lt;?php if ($action_links): ?&gt;&lt;ul class="action-links"&gt;&lt;?php print render($action_links); ?&gt;&lt;/ul&gt;&lt;?php endif; ?&gt;
+      &lt;?php print render($page['content']); ?&gt;
+      &lt;?php print $feed_icons; ?&gt;
+    &lt;/div&gt;&lt;/div&gt; &lt;!-- /.section, /#content --&gt;
+    &lt;?php if ($page['sidebar_first']): ?&gt;
+      &lt;div id="sidebar-first" class="column sidebar"&gt;&lt;div class="section"&gt;
+        &lt;?php print render($page['sidebar_first']); ?&gt;
+      &lt;/div&gt;&lt;/div&gt; &lt;!-- /.section, /#sidebar-first --&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php if ($page['sidebar_second']): ?&gt;
+      &lt;div id="sidebar-second" class="column sidebar"&gt;&lt;div class="section"&gt;
+        &lt;?php print render($page['sidebar_second']); ?&gt;
+      &lt;/div&gt;&lt;/div&gt; &lt;!-- /.section, /#sidebar-second --&gt;
+    &lt;?php endif; ?&gt;
+  &lt;/div&gt;&lt;/div&gt; &lt;!-- /#main, /#main-wrapper --&gt;
+  &lt;div id="footer"&gt;&lt;div class="section"&gt;
+    &lt;?php print render($page['footer']); ?&gt;
+  &lt;/div&gt;&lt;/div&gt; &lt;!-- /.section, /#footer --&gt;
+&lt;/div&gt;&lt;/div&gt; &lt;!-- /#page, /#page-wrapper --&gt;
+</code></pre>
+        </section>
+        <section>
+          <h2>Example custom page.tpl.php</h2>
+          <pre><code>&lt;div id="page"&gt;
+  &lt;div id="page-content" class="clearfix"&gt;
+    &lt;?php print render($page['header']); ?&gt;
+    &lt;?php print render($page['navigation']); ?&gt;
+    &lt;?php print render($page['help']); ?&gt;
+    &lt;?php if (!empty($messages)): ?&gt;
+      &lt;?php print $messages; ?&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php if ($tabs = render($tabs)): ?&gt;
+      &lt;div class="tabs"&gt;&lt;?php print $tabs; ?&gt;&lt;/div&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php if ($action_links): ?&gt;
+      &lt;ul class="action-links"&gt;&lt;?php print render($action_links); ?&gt;&lt;/ul&gt;
+    &lt;?php endif; ?&gt;
+    &lt;?php print render($page['content']); ?&gt;
+    &lt;?php print render($page['sidebar_first']); ?&gt;
+    &lt;?php print render($page['sidebar_second']); ?&gt;
+    &lt;?php print render($page['footer']); ?&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h2>Example advanced custom page.tpl.php</h2>
+          <pre><code>&lt;div class="main-pane-outer"&gt;
+  &lt;div class="main-pane-inner"&gt; 
+    &lt;?php print render($page['ticker']); ?&gt;
+    &lt;?php print render($page['header']); ?&gt;
+    &lt;?php print render($page['navigation_pane']); ?&gt;
+    &lt;?php print render($page['navigation']); ?&gt;
+    &lt;div id="page-wrapper"&gt;
+      &lt;div id="page-wrapper-content"&gt;
+        &lt;div id="page"&gt;
+          &lt;div id="page-content" class="clearfix"&gt;
+            &lt;?php print render($page['help']); ?&gt;
+            &lt;?php print render($page['content_over']); ?&gt;
+            &lt;?php if (!empty($messages)): ?&gt;
+              &lt;?php print $messages; ?&gt;
+            &lt;?php endif; ?&gt;
+            &lt;?php if ($tabs = render($tabs)): ?&gt;
+              &lt;div class="tabs"&gt;&lt;?php print $tabs; ?&gt;&lt;/div&gt;
+            &lt;?php endif; ?&gt;
+            &lt;?php if ($action_links): ?&gt;
+              &lt;ul class="action-links"&gt;&lt;?php print render($action_links); ?&gt;&lt;/ul&gt;
+            &lt;?php endif; ?&gt;
+            &lt;?php print render($page['content']); ?&gt;
+            &lt;?php print render($page['sidebar_first']); ?&gt;
+            &lt;?php print render($page['sidebar_second']); ?&gt;
+            &lt;?php print render($page['content_under']); ?&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="footer-wrapper"&gt;
+      &lt;div id="footer-wrapper-content"&gt;
+        &lt;?php print render($page['footer']); ?&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section>
+          <h2>What about Views?</h2>
+        </section>
+				<section>
+					<h2>Clean Views!</h2>
+					<img src="images/clean-views.png" alt="">
+				</section>
+				<section>
+					<h2>View Formats</h2>
+					<img src="images/views-config.png" alt="">
+				</section>
+				<section>
+					<h2>Semantic View Field Settings</h2>
+					<img src="images/semanticviews-config.png" alt="">
+				</section>
+        <section>
+          <h2>Removing What Drupal Gives<br>(forces on?) You</h2>
+        </section>
+				<section>
+					<h2>Removing Image Height and Width</h2>
+					<pre><code>/*Remove the automatic addition of width and height attributes for images.
+					This speeds front-end performance, but breaks responsive designs.*/
+function MYTHEME_preprocess_image(&$variables) {
+  unset(
+    $variables['width'],
+    $variables['height'],
+    $variables['attributes']['width'],
+    $variables['attributes']['height']
+  );
+}</code></pre>
+				</section>
+				<section>
+					<h2>Gutting the CSS /JS</h2>
+					<pre><code>// Remove some module CSS files
+function MYTHEME_css_alter(&$css) {
+  unset($css[drupal_get_path('module', 'system') . '/system.menus.css']);
+  unset($css[drupal_get_path('module', 'system') . '/system.theme.css']);
+  unset($css[drupal_get_path('module', 'user') . '/user.css']);
+}</code></pre>
+				</section>
+        <section>
+          <h2>Coming up with a plan</h2>
+        </section>
+				<section>
+					<h2>Making The Container Structure Consistent</h2>
+          <h3>Example of how I do it!</h3>
+					<img src="images/doublebox.png" alt="">
+				</section>
+        <section>
+          <h2>Exception: Input boxes</h2>
+          <img src="images/input-box.png" alt="">
+        </section>
+        <section>
+          <h2>Drupal Markup Structure</h2>
+          <img src="images/drupal-page.png" alt="">
+        </section>
+        <section>
+          <h2>Combine the Container Pattern to Drupal</h2>
+          <img src="images/region-block.png" alt="">
+        </section>
+        <section>
+          <h2>Live demo</h2>
+          <h3>Never a good idea?</h3>
+        </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: 'beige', // available themes are in /css/theme
+				transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

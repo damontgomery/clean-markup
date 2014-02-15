@@ -1,0 +1,42 @@
+<div id="content" class="column">
+  <div class="section">
+    <a id="main-content"></a>
+    <h1 class="title" id="page-title">Sample Art Beta</h1>
+    <div class="tabs">
+    </div>
+    <div class="region region-content">
+      <div id="block-system-main" class="block block-system">
+        <div class="content">
+          <div id="node-3" class="node node-artwork node-promoted node-full clearfix" about="/node/3" typeof="sioc:Item foaf:Document">
+            <div class="content clearfix">
+              <div class="field field-name-field-artwork-photograph field-type-file field-label-hidden">
+                <div class="field-items">
+                  <div class="field-item even">
+                    <div id="file-2" class="file file-image file-image-jpeg">
+                      <h2 class="element-invisible"><a href="/file/2">ciaranduffy_StrangelyQuiet5.jpg</a></h2>
+                      <div class="content">
+                        <img typeof="foaf:Image" src="http://cleanmarkup.dev/sites/default/files/artwork/ciaranduffy_StrangelyQuiet5.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                <div class="field-items">
+                  <div class="field-item even" property="content:encoded">
+                    <p>Here is more art.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="link-wrapper">
+              <ul class="links inline">
+                <li class="comment_forbidden first last"><span><a href="/user/login?destination=node/3%23comment-form">Log in</a> or <a href="/user/register?destination=node/3%23comment-form">register</a> to post comments</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
