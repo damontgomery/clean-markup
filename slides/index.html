@@ -43,10 +43,17 @@
             <small>Inspired in part by <a href="http://www.codeenigma.com/en/blog/drupal-theming-death-of-a-themer">Death of a Themer by James Panton</a></small>
             <br><small>(http://www.codeenigma.com/en/blog/drupal-theming-death-of-a-themer)</small>
 					</p>
+          <aside class="notes">
+            <p>Who is backend dev? Frontend Dev? Designer? Who works on a team of 1? Who works with one frontend dev? Who works with more?</p>
+          </aside>
 				</section>
         <section>
           <h2>The Drupal Team</h2>
           <img src="images/dev-themer-frontend.jpg" alt="">
+          <aside class="notes">
+            <p>Taken from Death of a Themer by James Panton</p>
+            <p>Tossed over the wall</p>
+          </aside>
         </section>
 				<section>
 					<h2>The Problem</h2>
@@ -57,6 +64,10 @@
 						<li>Overrides and conflicts with old JS libraries.</li>
 						<li>For larger teams, flexibility leads to a mess.</li>
 					</ul>
+          <aside class="notes">
+            <p>First experiences as a Drupal front end dev</p>
+            <p>First experiences as a Drupal user, UI, theme, modules, custom code / hooks, database?</p>
+          </aside>
 				</section>
 				<section>
 					<h2>The Solution</h2>
@@ -65,22 +76,37 @@
 						<li>Add back in what you want.</li>
 						<li>Stop hearing, "Drupal sucks"?</li>
 					</ul>
+          <aside class="notes">
+            <p>Let Drupal do what it's good at, being a backend framework. Let frontend do what they are good at, frontend. Frontend is constantly changing and Drupal's front end is kind of old at this point.</p>
+          </aside>
 				</section>
 				<section>
 					<h2>Sample Content</h2>
 					<img src="images/sample-content.png" alt="">
+          <aside class="notes">
+            <p>How would someone code this page in HTML?</p>
+          </aside>
 				</section>
 				<section>
 					<h2>DIVS DIVS DIVS</h2>
-					<img src="images/divs-divs-divs.png" alt="">					
+					<img src="images/divs-divs-divs.png" alt="">	
+          <aside class="notes">
+            <p>Why is this a problem? Flexibility vs real flexibility.</p>
+          </aside>
 				</section>
         <section>
           <h2>What a frontend dev sees</h2>
           <img src="images/no-hats.jpg" alt="">
+          <aside class="notes">
+            <p>Two different cactuses. Where would you put a hat on each?</p>
+          </aside>
         </section>
         <section>
           <h2>What frontend devs do</h2>
           <img src="images/many-hats" alt="">
+          <aside class="notes">
+            <p>Communication issues.</p>
+          </aside>
         </section>
         <section>
           <h2>:(</h2>
@@ -89,10 +115,13 @@
 				<section>
 					<h2>Nice and Clean!</h2>
 					<img src="images/clean.png" alt="">
+          <aside class="notes">
+            <p>Probably what we thought the markup would look like.</p>
+          </aside>
 				</section>
         <section>
           <h2>Remember this?</h2>
-          <img src="images/divs-divs-divs.png" alt="">          
+          <img src="images/divs-divs-divs.png" alt="">
         </section>
         <section>
           <h2>Let's go back to the hats</h2>
@@ -101,6 +130,9 @@
 				<section>
 					<h2>Too Little?</h2>
 					<img src="images/too-little.png" alt="">
+          <aside class="notes">
+            <p>Maybe, maybe not? You can always add more if it doesn't work.</p>
+          </aside>
 				</section>
 				<section>
 					<h2>Key Modules</h2>
@@ -111,39 +143,68 @@
 						<li>jQuery Update</li>
 						<li>Your own theme!</li>
 					</ul>
+          <aside class="notes">
+            <p>How are we going to do this? Can you show your frontend devs a blank slate and let them go wild? DS is really a Suite, you don't need to use all of it and most people who use DS don't even know what all of it's parts are.</p>
+          </aside>
 				</section>
 				<section>
 					<h2>Your own theme?</h2>
 					<p>Don't worry! Theming doesn't have to be a pain.</p>
+          <aside class="notes">
+            <p>Themes are mostly template files. You can copy Drupal's default templates and work from there. Most often custom themes are a bad idea since they are are someone else's design. Overrides on overrides.</p>
+          </aside>
 				</section>
         <section>
           <h2>The theme will focus on wrangling Drupal's containers</h2>
         </section>
         <section>
           <h2>Let's start with the fields inside those containers</h2>
+          <aside class="notes">
+            <p>Build up from nothing!</p>
+          </aside>
         </section>
 				<section>
 					<h2>Enable DS Extras Field Templates</h2>
 					<img src="images/DS-Settings.png" alt="">
+          <aside class="notes">
+            <p>Site building through UI gets you a long way!</p>
+          </aside>
 				</section>
 				<section>
 					<h2>Manage Display</h2>
 					<img src="images/DS-CT-Manage-Display.png" alt="">
+          <aside class="notes">
+            <p>DS extends Drupal's default systems so it's easy to learn for Drupal devs and it is great for learning Drupal. We also sneak in a clean up of the content type (node)</p>
+            <p>Use Media to display file with Rendered File</p>
+          </aside>
 				</section>
 				<section>
 					<h2>Manage Media Display</h2>
 					<img src="images/Media-Manage-Display.png" alt="">
+          <aside class="notes">
+            <p>Media has a similar patter. This part is the file wrapper. Don't worry if Media and File Entity are daunting. They aren't that clear! But, they sort of follow Drupal patterns.</p>
+          </aside>
 				</section>
 				<section>
 					<h2>Manage Media File Display</h2>
 					<img src="images/Media-Manage-File-Display.png" alt="">
+          <aside class="notes">
+            <p>This part is the actual file. Oh boy, we heard you liked entities...</p>
+            <p>Images styles are defined by image styles. Those let you layer operations onto files like resize, crop, etc.</p>
+          </aside>
 				</section>
         <section>
           <h2>Back to the containers (theme)</h2>
+          <aside class="notes">
+            <p>We've got the building blocks, now we need to understand the base Drupal containers. I think designers should understand this part and work within the structure. Balance.</p>
+          </aside>
         </section>
         <section>
           <h2>Drupal Markup Structure</h2>
           <img src="images/drupal-page.png" alt="">
+          <aside class="notes">
+            <p>So, what is that structure?</p>
+          </aside>
         </section>
         <section>
           <h2>Key Theme Components</h2>
@@ -163,6 +224,9 @@
               <li>views-view-tpl.php</li>
             </ul>
           </ul>
+          <aside class="notes">
+            <p>Each template file corresponds to one of the containers. DS will override the node.tpl.php level. We'll get to views later!</p>
+          </aside>
         </section>
         <section>
           <h2>Example: Block.tpl.php</h2>
@@ -178,6 +242,9 @@
     &lt;?php print $content ?&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+        <aside class="notes">
+          <p>Not so bad. Wrapper, title, content. Some classes. Title prefix is the contextual links. :(</p>
+        </aside>
         </section>
         <section>
           <h2>Example: New Block.tpl.php</h2>
@@ -194,6 +261,9 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
+        <aside class="notes">
+          <p>We can easily move the block title inside the block. The block is a container after all and the title is contained in it! Why 'content'? We'll talk about it later, but that's my strategy.</p>
+        </aside>
         </section>
         <section>
           <h2>Example default HTML.tpl.php</h2>
@@ -216,6 +286,9 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+        <aside class="notes">
+          <p>Again, pretty simple. But here is where you can swap out HTML5. THIS IS NOT WHERE YOU PRINT REGIONS! Remember, page!</p>
+        </aside>
         </section>
         <section>
           <h2>Example custom HTML.tpl.php</h2>
@@ -303,6 +376,9 @@
   &lt;/div&gt;&lt;/div&gt; &lt;!-- /.section, /#footer --&gt;
 &lt;/div&gt;&lt;/div&gt; &lt;!-- /#page, /#page-wrapper --&gt;
 </code></pre>
+        <aside class="notes">
+          <p>Page is where it gets really messy. The page template is going to give you a great idea of how a site is contructed. I think it's an awful idea to put so much structure in page.tpl.php. So, what should you do?</p>
+        </aside>
         </section>
         <section>
           <h2>Example custom page.tpl.php</h2>
@@ -326,6 +402,9 @@
     &lt;?php print render($page['footer']); ?&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+        <aside class="notes">
+          <p>You should print all your regions (defined in .info file). Tabs (edit) and action links are special circumstances. Often the page title is printed at the page level and it's kind of hard to get around this, but you can print it with the node / view.</p>
+        </aside>
         </section>
         <section>
           <h2>Example advanced custom page.tpl.php</h2>
@@ -365,10 +444,15 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+        <aside class="notes">
+          <p>Add back in what you need. Some functionality (like slide navs) or styles need special markup, you can add that in here.</p>
+        </aside>
         </section>
-
         <section>
           <h2>What about Views?</h2>
+          <aside class="notes">
+            <p>What are views? Everyone who's used views knows it's even worse about it's markup. It's also harder to get at since there is an even more complex theming system.</p>
+          </aside>
         </section>
 				<section>
 					<h2>Clean Views!</h2>
@@ -377,13 +461,19 @@
 				<section>
 					<h2>View Formats</h2>
 					<img src="images/views-config.png" alt="">
+          <aside class="notes">
+            <p>Views is a wizard for DB Queries. The first step is picking an output format (which is a weird place to start). The format defines the overall structure and how each item will be organized. The "show" will define how each item's pieces are gathered and displayed. Semantic Views strips out all the markup and lets you add it back.</p>
+          </aside>
 				</section>
 				<section>
 					<h2>Semantic View Field Settings</h2>
 					<img src="images/semanticviews-config.png" alt="">
+          <aside class="notes">
+            <p>That's fields, content, and listings. Now we need to get a little technical with the backend.</p>
+          </aside>
 				</section>
         <section>
-          <h2>Removing What Drupal Gives<br>(forces on?) You</h2>
+          <h2>Getting technical with theme hooks. Removing What Drupal Gives<br>(forces on?) You</h2>
         </section>
 				<section>
 					<h2>Removing Image Height and Width</h2>
@@ -397,6 +487,9 @@ function MYTHEME_preprocess_image(&$variables) {
     $variables['attributes']['height']
   );
 }</code></pre>
+        <aside class="notes">
+          <p>Preprocess functions, $vars, api.drupal.org, dpm &amp; devel</p>
+        </aside>
 				</section>
 				<section>
 					<h2>Gutting the CSS /JS</h2>
@@ -414,6 +507,9 @@ function MYTHEME_css_alter(&$css) {
 					<h2>Making The Container Structure Consistent</h2>
           <h3>Example of how I do it!</h3>
 					<img src="images/doublebox.png" alt="">
+          <aside class="notes">
+            <p>Remember those example templates with "content"?</p>
+          </aside>
 				</section>
         <section>
           <h2>Exception: Input boxes</h2>
@@ -422,6 +518,9 @@ function MYTHEME_css_alter(&$css) {
         <section>
           <h2>Drupal Markup Structure</h2>
           <img src="images/drupal-page.png" alt="">
+          <aside class="notes">
+            <p>We now look back at the Drupal structure and apply these strategies there. The designers / frontend influence the design with both the structure of the containers and the regions / placements of blocks.</p>
+          </aside>
         </section>
         <section>
           <h2>Combine the Container Pattern to Drupal</h2>
